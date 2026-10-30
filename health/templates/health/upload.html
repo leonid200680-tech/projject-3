@@ -1,0 +1,10 @@
+{% extends "health/base.html" %}
+{% block content %}
+<h1>Загрузить JSON-файл</h1>
+<p>Ожидается формат: <code>{"records": [ {...}, {...} ]}</code></p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Загрузить</button>
+</form>
+{% endblock %}

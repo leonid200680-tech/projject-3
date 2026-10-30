@@ -1,0 +1,15 @@
+{
+  "records": [
+    {
+      "full_name": "Стрельцов Леонид Андреевич",
+      "age": 12,
+      "gender": "male",
+      "blood_pressure": "120/80",
+      "heart_rate": 200,
+      "temperature": 30.0,
+      "diagnosis": "СДВГ",
+      "examination_date": "2026-10-08"
+    }
+  ],
+  "count": 1
+}

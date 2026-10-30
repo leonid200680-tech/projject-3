@@ -1,0 +1,37 @@
+{% extends "health/base.html" %}
+{% block content %}
+<h1>Все сохранённые файлы</h1>
+
+{% if not files %}
+    <p>Файлов нет.</p>
+{% else %}
+    {% for f in files %}
+        <div class="file">
+            <strong>{{ f.name }}</strong>
+            {% if f.content.records %}
+                <table>
+                    <tr>
+                        <th>ФИО</th><th>Возраст</th><th>Пол</th>
+                        <th>Давление</th><th>Пульс</th><th>Темп.</th>
+                        <th>Диагноз</th><th>Дата</th>
+                    </tr>
+                    {% for r in f.content.records %}
+                        <tr>
+                            <td>{{ r.full_name }}</td>
+                            <td>{{ r.age }}</td>
+                            <td>{{ r.gender }}</td>
+                            <td>{{ r.blood_pressure }}</td>
+                            <td>{{ r.heart_rate }}</td>
+                            <td>{{ r.temperature }}</td>
+                            <td>{{ r.diagnosis|default:"—" }}</td>
+                            <td>{{ r.examination_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <pre>{{ f.content }}</pre>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

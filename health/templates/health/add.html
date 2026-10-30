@@ -1,0 +1,11 @@
+{% extends "health/base.html" %}
+{% block content %}
+<h1>Добавить медицинскую запись</h1>
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Сохранить</button>
+</form>
+{% endblock %}
